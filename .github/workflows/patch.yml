@@ -122,8 +122,8 @@ jobs:
           bench --site test_site install-app payments
 
           echo "Updating to latest version"
-          git -C "apps/frappe" checkout -q -f "${GITHUB_BASE_REF:-${GITHUB_REF##*/}}"
-          git -C "apps/erpnext" checkout -q -f "$GITHUB_SHA"
+          git -C "apps/frappe" checkout -q -f "develop"
+          git -C "apps/erpnext" checkout -q -f "test"
 
           pyenv global $(pyenv versions | grep '3.10')
           rm -rf ~/frappe-bench/env
