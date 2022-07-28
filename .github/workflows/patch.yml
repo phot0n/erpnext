@@ -119,6 +119,7 @@ jobs:
               bench --site test_site migrate
           done
 
+          bench --site test_site install-app payments
 
           echo "Updating to latest version"
           git -C "apps/frappe" checkout -q -f "${GITHUB_BASE_REF:-${GITHUB_REF##*/}}"
@@ -131,4 +132,3 @@ jobs:
           bench pip install -e ./apps/erpnext
 
           bench --site test_site migrate
-          bench --site test_site install-app payments
